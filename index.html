@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Booking</title>
+</head>
+<body>
+    <h1>Available Movies</h1>
+    <ul>
+        {% for movie in movies %}
+        <li>
+            <h2>{{ movie.movie_name }}</h2>
+            <h4>{{ movie._id }}</h4>
+            <h4>{{ movie.movie_venue }}</h4>
+            <h4>{{ movie.show_start_time }}</h4>
+            <h4>{{ movie.price }}</h4>
+            <p>Available Seats: {{ movie.seats }}</p>
+            <form action="{{ url_for('book', movie_id=movie.id) }}" method="POST">
+                <label for="num_tickets">Number of Tickets:</label>
+                <input type="number" name="num_tickets" id="num_tickets" min="1" max="{{ movie.seats }}" required>
+                <button type="submit">Book Tickets</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    <h2><a href="{{ url_for('booking_details') }}">View Bookings</a></h2>
+</body>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>

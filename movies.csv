@@ -1,0 +1,51 @@
+id,movie_name,movie_venue,show_start_time,price,seats
+1,The Avengers,Regplex,9:30 AM,12,150
+2,Inception,Cinemax,10:00 AM,10,200
+3,The Dark Knight,Rex Cinema,11:15 AM,11,180
+4,Interstellar,Starplex,12:00 PM,9,160
+5,Jurassic Park,Regplex,1:30 PM,8,170
+6,Avatar,Cinemax,3:00 PM,12,190
+7,Pirates of the Caribbean: The Curse of the Black Pearl,Rex Cinema,4:45 PM,10,200
+8,The Lion King,Starplex,6:00 PM,11,180
+9,The Matrix,Regplex,7:15 PM,9,160
+10,Toy Story,Cinemax,8:30 PM,8,170
+11,Harry Potter and the Sorcerer's Stone,Rex Cinema,9:45 PM,12,190
+12,Forrest Gump,Starplex,10:30 PM,10,200
+13,The Shawshank Redemption,Regplex,11:45 PM,11,180
+14,The Godfather,Cinemax,12:30 AM,9,160
+15,Schindler's List,Rex Cinema,1:15 AM,8,170
+16,The Lord of the Rings: The Fellowship of the Ring,Starplex,2:30 AM,12,190
+17,Braveheart,Regplex,3:45 AM,10,200
+18,Gladiator,Cinemax,5:00 AM,11,180
+19,Inglourious Basterds,Rex Cinema,6:15 AM,9,160
+20,The Departed,Starplex,7:30 AM,8,170
+21,Fight Club,Regplex,8:45 AM,12,190
+22,The Silence of the Lambs,Cinemax,9:30 AM,10,200
+23,The Shining,Rex Cinema,10:45 AM,11,180
+24,The Sixth Sense,Starplex,12:00 PM,9,160
+25,Goodfellas,Regplex,1:15 PM,8,170
+26,Saving Private Ryan,Cinemax,2:30 PM,12,190
+27,The Green Mile,Rex Cinema,3:45 PM,10,200
+28,American History X,Starplex,5:00 PM,11,180
+29,The Prestige,Regplex,6:15 PM,9,160
+30,The Usual Suspects,Cinemax,7:30 PM,8,170
+31,Inception,Rex Cinema,8:45 PM,12,190
+32,The Dark Knight,Starplex,9:30 PM,10,200
+33,Interstellar,Regplex,10:45 PM,11,180
+34,Jurassic Park,Cinemax,12:00 AM,9,160
+35,Avatar,Rex Cinema,1:15 AM,8,170
+36,Pirates of the Caribbean: The Curse of the Black Pearl,Starplex,2:30 AM,12,190
+37,The Lion King,Regplex,3:45 AM,10,200
+38,The Matrix,Cinemax,5:00 AM,11,180
+39,Toy Story,Rex Cinema,6:15 AM,9,160
+40,Harry Potter and the Sorcerer's Stone,Starplex,7:30 AM,8,170
+41,Forrest Gump,Regplex,8:45 AM,12,190
+42,The Shawshank Redemption,Cinemax,9:30 AM,10,200
+43,The Godfather,Rex Cinema,10:45 AM,11,180
+44,Schindler's List,Starplex,12:00 PM,9,160
+45,The Lord of the Rings: The Fellowship of the Ring,Regplex,1:15 PM,8,170
+46,Braveheart,Cinemax,2:30 PM,12,190
+47,Gladiator,Rex Cinema,3:45 PM,10,200
+48,Inglourious Basterds,Starplex,5:00 PM,11,180
+49,The Departed,Regplex,6:15 PM,9,160
+50,Fight Club,Cinemax,7:30 PM,8,170
