@@ -2,6 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
 from pymongo import MongoClient
 import pandas as pd
+import requests
+import json
+import http.client
 
 
 app = Flask(__name__)
@@ -25,11 +28,58 @@ bookings = {}
 
 @app.route('/')
 def index():
-    movies = list(movies_collection.find({}))
-    for i in movies:
-        i['_id'] = str(i['_id'])
-    print(movies)
+    # movies = list(movies_collection.find({}))
+    # for i in movies:
+    #     i['_id'] = str(i['_id'])
+    # print(movies)
+    conn = http.client.HTTPSConnection("flixster.p.rapidapi.com")
+
+    headers = {
+        'X-RapidAPI-Key': "YOUR_KEY",
+        'X-RapidAPI-Host': "flixster.p.rapidapi.com"
+    }
+
+    conn.request("GET", "/theaters/list?zipCode=90002&radius=50", headers=headers)
+
+    res = conn.getresponse()
+    data = res.read()
+
+    movies_data = data.decode("utf-8")
+
+    # Now you can parse movies_data directly as JSON
+    my_data = json.loads(movies_data)
+
+    # Accessing the dictionary elements
+    theaters = my_data["data"]["theaters"]
+
+    movies = []
+
+    for theater in theaters:
+        id = theater["id"]
+        name = theater["name"]
+        tid = theater["tid"]
+        latitude = theater["latitude"]
+        longitude = theater["longitude"]
+        lis = {}
+        lis["id"]=id
+        lis["name"] = name
+        lis["tid"] = tid
+        lis["latitude"] = latitude
+        lis["longitude"] = longitude
+        lis["seats"] = 100
+        lis["price"] = 15
+        movies.append(lis)
+
+
+        print("Name:", name)
+        print("Tid:", tid)
+        print("Latitude:", latitude)
+        print("Longitude:", longitude)
+        print("-------------")
+
+
     return render_template('index.html', movies=movies)
+
 
 
 @app.route('/book/<int:movie_id>', methods=['POST'])
