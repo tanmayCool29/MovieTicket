@@ -41,7 +41,7 @@ def index():
     conn = http.client.HTTPSConnection("flixster.p.rapidapi.com")
 
     headers = {
-        'X-RapidAPI-Key': "023ef40098msh7e20ffef9e148a6p1f0e47jsn89b0a771d7f7",
+        'X-RapidAPI-Key': "KEY",
         'X-RapidAPI-Host': "flixster.p.rapidapi.com"
     }
 
