@@ -1,24 +1,30 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import pandas as pd
 from pymongo import MongoClient
 import pandas as pd
 import requests
 import json
 import http.client
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app)
 
 
-client = MongoClient('mongodb+srv://sarthakgharat:5JVLoXUxTKcwU81o@cluster0.7t9vzps.mongodb.net/?retryWrites=true&w=majority')
+client = MongoClient(
+    'mongodb+srv://sarthakgharat:5JVLoXUxTKcwU81o@cluster0.7t9vzps.mongodb.net/?retryWrites=true&w=majority')
 db = client['movie_booking']  # Change 'movie_booking' to your database name
 movies_collection = db['movies']  # Change 'movies' to your collection name
 
 # Function to import data from CSV to MongoDB
+
+
 def import_data_from_csv(csv_file, collection):
     data = pd.read_csv(csv_file)
     records = data.to_dict(orient='records')
     collection.insert_many(records)
+
 
 # Import data from CSV to MongoDB (run this once)
 import_data_from_csv('movies.csv', movies_collection)
@@ -35,11 +41,12 @@ def index():
     conn = http.client.HTTPSConnection("flixster.p.rapidapi.com")
 
     headers = {
-        'X-RapidAPI-Key': "YOUR_KEY",
+        'X-RapidAPI-Key': "023ef40098msh7e20ffef9e148a6p1f0e47jsn89b0a771d7f7",
         'X-RapidAPI-Host': "flixster.p.rapidapi.com"
     }
 
-    conn.request("GET", "/theaters/list?zipCode=90002&radius=50", headers=headers)
+    conn.request("GET", "/theaters/list?zipCode=90002&radius=50",
+                 headers=headers)
 
     res = conn.getresponse()
     data = res.read()
@@ -61,7 +68,7 @@ def index():
         latitude = theater["latitude"]
         longitude = theater["longitude"]
         lis = {}
-        lis["id"]=id
+        lis["id"] = id
         lis["name"] = name
         lis["tid"] = tid
         lis["latitude"] = latitude
@@ -70,16 +77,14 @@ def index():
         lis["price"] = 15
         movies.append(lis)
 
-
         print("Name:", name)
         print("Tid:", tid)
         print("Latitude:", latitude)
         print("Longitude:", longitude)
         print("-------------")
 
-
+    return jsonify(movies)
     return render_template('index.html', movies=movies)
-
 
 
 @app.route('/book/<int:movie_id>', methods=['POST'])
